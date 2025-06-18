@@ -157,6 +157,7 @@ function handlePageStateChanges(state) {
 
     // IF PAGE HAS NOTHING ON IT AND KEYBOARD IS NOT VISIBLE
     if (!state.isKeyboardVisible && !state.hasMessage && !state.hasFiles) {
+        document.querySelector('#page-description div div h2').innerHTML = 'keyboard fechado e sem conteúdo';
         confirmButton.classList.contains('hidden') ? null : confirmButton.classList.add('hidden');
         sendButton.classList.contains('hidden') ? null : sendButton.classList.add('hidden');
         msgInputContainer.classList.add('grow');
@@ -164,6 +165,7 @@ function handlePageStateChanges(state) {
     }
     // IF PAGE HAS KEYBOARD VISIBLE
     else if (state.isKeyboardVisible) {
+        document.querySelector('#page-description div div h2').innerHTML = 'keyboard ABERTO';
         confirmButton.classList.contains('hidden') ? confirmButton.classList.remove('hidden') : null;
         sendButton.classList.contains('hidden') ? null : sendButton.classList.add('hidden');
         msgInputContainer.classList.remove('grow');
@@ -172,6 +174,7 @@ function handlePageStateChanges(state) {
     }
     // IF PAGE HAS MESSAGE OR FILES AND KEYBOARD IS NOT VISIBLE
     else {
+        document.querySelector('#page-description div div h2').innerHTML = 'keyboard fechado';
         confirmButton.classList.contains('hidden') ? null : confirmButton.classList.add('hidden');
         sendButton.classList.contains('hidden') ? sendButton.classList.remove('hidden') : null;
         msgInputContainer.classList.remove('grow');
